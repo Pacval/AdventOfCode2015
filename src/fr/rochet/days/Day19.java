@@ -51,6 +51,7 @@ public class Day19 implements DayInterface {
         String startMolecule = entries[entries.length - 1];
 
         minSteps = Integer.MAX_VALUE;
+        seenMolecules = new ArrayList<>();
         getPreviousMolecule(startMolecule, 0);
 
         System.out.println("The molecule can be made in " + minSteps + " steps");
@@ -58,26 +59,31 @@ public class Day19 implements DayInterface {
     }
 
     private List<String[]> replacements;
+    private List<String> seenMolecules;
     private int minSteps;
 
     // partie on utilise la récursivité
     private void getPreviousMolecule(String currentMolecule, int steps) {
-        if (currentMolecule.equals("e")) {
-            if (steps < minSteps) {
-                minSteps = steps;
-                System.out.println("Found : " + minSteps);
-            }
-        } else {
-            for (String[] replacement : replacements) {
-                if (currentMolecule.contains(replacement[1])) {
-                    int position = 0;
-                    while ((position = currentMolecule.indexOf(replacement[1], position)) >= 0) {
-                        // on récupère la molécule d'avant
-                        getPreviousMolecule(currentMolecule.substring(0, position) +
-                                        replacement[0] +
-                                        currentMolecule.substring(position + replacement[1].length(), currentMolecule.length()),
-                                steps + 1);
-                        position++;
+        if (!seenMolecules.contains(currentMolecule)) {
+            seenMolecules.add(currentMolecule);
+            System.out.println(steps + "\t" + currentMolecule);
+            if (currentMolecule.equals("e")) {
+                if (steps < minSteps) {
+                    minSteps = steps;
+                    System.out.println("Found : " + minSteps);
+                }
+            } else {
+                for (String[] replacement : replacements) {
+                    if (currentMolecule.contains(replacement[1])) {
+                        int position = 0;
+                        while ((position = currentMolecule.indexOf(replacement[1], position)) >= 0) {
+                            // on récupère la molécule d'avant
+                            getPreviousMolecule(currentMolecule.substring(0, position) +
+                                            replacement[0] +
+                                            currentMolecule.substring(position + replacement[1].length(), currentMolecule.length()),
+                                    steps + 1);
+                            position++;
+                        }
                     }
                 }
             }
