@@ -10,5 +10,6 @@
     <orderEntry type="library" name="2" level="project" />
     <orderEntry type="library" name="commons-lang3-3.5" level="project" />
     <orderEntry type="library" name="commons-io-2.5" level="project" />
+    <orderEntry type="library" name="commons-codec-1.5" level="project" />
   </component>
 </module>
