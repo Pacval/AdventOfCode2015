@@ -11,14 +11,14 @@ import java.util.List;
 public class Day14 implements DayInterface {
 
     private class Reindeer {
-        String name;
-        int speed;
-        int flyTime;
-        int restTime;
-        boolean flying;
-        int dist;
-        int timer;
-        int points;
+        private String name;
+        private int speed;
+        private int flyTime;
+        private int restTime;
+        private boolean flying;
+        private int dist;
+        private int timer;
+        private int points;
 
         Reindeer(String name, int speed, int flyTime, int restTime) {
             this.name = name;
