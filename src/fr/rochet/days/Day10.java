@@ -2,17 +2,15 @@ package fr.rochet.days;
 
 import fr.rochet.DayInterface;
 
-import java.io.IOException;
-
 public class Day10 implements DayInterface {
 
     @Override
-    public void part1() throws IOException {
+    public void part1() {
         process(40);
     }
 
     @Override
-    public void part2() throws IOException {
+    public void part2() {
         process(50);
     }
 
@@ -21,7 +19,7 @@ public class Day10 implements DayInterface {
 
         String currentSeq = entry;
 
-        for (int i = 0; i < rounds; i ++) {
+        for (int i = 0; i < rounds; i++) {
             StringBuilder nextSeq = new StringBuilder();
             Character previousChar = null;
             int count = 1;
