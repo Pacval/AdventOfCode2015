@@ -1,12 +1,12 @@
 package fr.rochet;
 
-import fr.rochet.days.Day5;
+import fr.rochet.days.Day6;
 
 public class Main {
 
     public static void main(String[] args) {
         try {
-            DayInterface day = new Day5();
+            DayInterface day = new Day6();
             day.part1();
             day.part2();
         } catch (Exception e) {
