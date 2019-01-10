@@ -148,7 +148,7 @@ public class Day22 implements DayInterface {
     private void nextTurn(boolean yourTurn, Perso you, Perso boss, int manaSpent) {
 
         // Part 2 : à commenter pour faire la partie 1
-        if (yourTurn){
+        if (yourTurn) {
             you.losePv(1);
         }
         // Fin de partie à commenter
@@ -195,24 +195,21 @@ public class Day22 implements DayInterface {
                         Perso copyYou = you.clone();
                         Perso copyBoss = boss.clone();
 
-                        if (copyYou.loseMana(Spell.SHIELD.manaCost)) {
-                            copyYou.startShield(7, 6);
+                        if (copyYou.loseMana(Spell.SHIELD.manaCost) && copyYou.startShield(7, 6)) {
                             nextTurn(false, copyYou, copyBoss, manaSpent + Spell.SHIELD.manaCost);
                         }
                     } else if (spell == Spell.POISON) {
                         Perso copyYou = you.clone();
                         Perso copyBoss = boss.clone();
 
-                        if (copyYou.loseMana(Spell.POISON.manaCost)) {
-                            copyBoss.startPoison(3, 6);
+                        if (copyYou.loseMana(Spell.POISON.manaCost) && copyBoss.startPoison(3, 6)) {
                             nextTurn(false, copyYou, copyBoss, manaSpent + Spell.POISON.manaCost);
                         }
                     } else if (spell == Spell.RECHARGE) {
                         Perso copyYou = you.clone();
                         Perso copyBoss = boss.clone();
 
-                        if (copyYou.loseMana(Spell.RECHARGE.manaCost)) {
-                            copyYou.startRecharge(101, 5);
+                        if (copyYou.loseMana(Spell.RECHARGE.manaCost) && copyYou.startRecharge(101, 5)) {
                             nextTurn(false, copyYou, copyBoss, manaSpent + Spell.RECHARGE.manaCost);
                         }
                     }
@@ -250,7 +247,5 @@ public class Day22 implements DayInterface {
 
     @Override
     public void part2() throws IOException {
-        String[] entries = ExoUtils.getEntries(22);
-
     }
 }
