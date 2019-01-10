@@ -5,6 +5,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 public class Day11 implements DayInterface {
 
+    // Fonction privée pour tester la validité du password
     private boolean isPasswordCorrect(char[] password) {
         boolean increasing = false;
         for (int i = 0; i < password.length - 2; i++) {
@@ -31,6 +32,7 @@ public class Day11 implements DayInterface {
         return increasing && contain && (consecutive >= 2);
     }
 
+    // Fonction récursive permettant d'incrémenter le password
     private void increasePassword(char[] password, int pos) {
         if (password[pos] == 'z') {
             password[pos] = 'a';
