@@ -50,9 +50,13 @@ public class Day19 implements DayInterface {
         }
         String startMolecule = entries[entries.length - 1];
 
+        // En analysant les changements, on remarque que les "Ca" sont inutiles
+        int stepsIgnored = startMolecule.split("Ca").length - 1;
+        startMolecule = startMolecule.replaceAll("Ca", "");
+
         minSteps = Integer.MAX_VALUE;
         seenMolecules = new ArrayList<>();
-        getPreviousMolecule(startMolecule, 0);
+        getPreviousMolecule(startMolecule, stepsIgnored);
 
         System.out.println("The molecule can be made in " + minSteps + " steps");
 
@@ -66,7 +70,7 @@ public class Day19 implements DayInterface {
     private void getPreviousMolecule(String currentMolecule, int steps) {
         if (!seenMolecules.contains(currentMolecule)) {
             seenMolecules.add(currentMolecule);
-            System.out.println(steps + "\t" + currentMolecule);
+            //System.out.println(steps + "\t" + currentMolecule);
             if (currentMolecule.equals("e")) {
                 if (steps < minSteps) {
                     minSteps = steps;
