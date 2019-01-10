@@ -62,7 +62,7 @@ public class Day19 implements DayInterface {
     private List<String> seenMolecules;
     private int minSteps;
 
-    // partie on utilise la récursivité
+    // partie 2 on utilise la récursivité
     private void getPreviousMolecule(String currentMolecule, int steps) {
         if (!seenMolecules.contains(currentMolecule)) {
             seenMolecules.add(currentMolecule);
