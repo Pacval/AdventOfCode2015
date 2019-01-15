@@ -1,4 +1,4 @@
-# AdventOfCode2015
+# Advent Of Code 2015
 Here are my solutions in Java for the 2015 Advent Of Code puzzles ( https://adventofcode.com/2015 )
 
 Librairies that need to be add to project :
